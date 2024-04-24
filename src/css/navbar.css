@@ -1,0 +1,45 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+}
+
+.container {
+  max-width: 100%; /* Set maximum width for container */
+  padding: 0 15px; /* Add padding to the container */
+  margin: 0 auto; /* Center the container */
+}
+
+.navbar {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: end;
+  padding: 10px;
+  background-color: var(--clr-secondary-1);
+  gap: 1rem;
+}
+
+.navbar select {
+  margin-right: 0.5rem;
+}
+
+.navbar select {
+}
+/*mobile first */
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+/* md */
+@media (min-width: 768px) {
+}
+
+/* lg */
+@media (min-width: 1024px) {
+}

@@ -1,0 +1,18 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+}
+
+.search-wrapper {
+  background-color: var(--clr-primary-1);
+  padding: 1rem 0;
+}
+.search-wrapper input {
+  width: 100%;
+}
