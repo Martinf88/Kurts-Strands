@@ -1,12 +1,19 @@
-import {
-  collection,
-  getDocs,
-  addDoc,
-  deleteDoc,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import { db } from "./fire";
 
-// TODO: get collection from firestore
+const collectionName = "toys";
+const collectionRef = collection(db, collectionName);
+
+export async function getToys() {
+  const toySnapshot = await getDocs(collectionRef);
+
+  const toyList = toySnapshot.docs.map((doc) => withKey(doc));
+  return toyList;
+}
+
+function withKey(doc) {
+  let o = doc.data();
+  o.key = doc.id; // "id" is the document reference
+  return o;
+}

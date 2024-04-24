@@ -12,14 +12,7 @@ export default function Homepage() {
       <Navbar />
       <section className="main-section">
         <h1>Våra produkter</h1>
-        <div className="product-container">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-        </div>
+        <Product />
       </section>
       <Footer />
     </>

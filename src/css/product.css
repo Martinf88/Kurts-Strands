@@ -9,6 +9,12 @@ Variables
   --clr-secondary-1: hsl(48, 100%, 50%);
 }
 
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
 .product {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -32,7 +38,8 @@ Variables
   color: #888;
 }
 
-.product button {
+.buy-btn,
+.btn {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -58,4 +65,45 @@ Variables
 .price-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+/*meadia queries */
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* xL */
+@media (min-width: 1280px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* 2xL */
+@media (min-width: 1536px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }
