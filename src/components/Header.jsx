@@ -10,7 +10,7 @@ export default function Header() {
         <h2 className="header-subtitle">Strand- & Badleksaker sedan 1976</h2>
       </div>
       <NavLink className="nav-link" to="/login">
-        Login
+        Logga in
       </NavLink>
     </header>
   );

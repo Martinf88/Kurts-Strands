@@ -4,7 +4,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import "./index.css";
 import Loginpage from "./pages/Loginpage";
-import ShoppingCart from "./components/ShoppingCart";
+import ShoppingCart from "./pages/ShoppingCart";
 
 const router = createHashRouter([
   {

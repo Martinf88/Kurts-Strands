@@ -1,0 +1,65 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+}
+
+.main-section {
+  min-height: 100dvh;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/*mobile first */
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* xL */
+@media (min-width: 1280px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* 2xL */
+@media (min-width: 1536px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
