@@ -1,3 +1,28 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+  margin-top: 2rem;
+}
+
 .shopping-cart-title {
   text-align: center;
+  margin-top: 2rem;
+}
+
+.cart-header,
+.cart-item {
+  display: flex;
+}
+
+.cart-header > * {
+  flex: 1;
+  border-bottom: 1px solid black; /* Optional: Add border bottom */
+  padding: 5px;
+  font-weight: bold;
+}
+
+.cart-item > * {
+  flex: 1;
+  padding: 5px;
 }

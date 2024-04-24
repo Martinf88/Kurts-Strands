@@ -1,0 +1,17 @@
+.shopping-cart-item {
+  display: flex;
+  justify-content: space-between;
+}
+.shopping-cart-item img {
+  height: 2rem;
+}
+
+.image-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.amount-wrapper {
+  display: flex;
+  align-items: start;
+}
