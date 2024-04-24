@@ -43,6 +43,7 @@ Variables
   color: var(--clr-secondary-1);
   display: flex;
   justify-content: space-between;
+  padding: 1rem 0;
 }
 
 .header-title {
@@ -75,6 +76,13 @@ Variables
 
 /* xs */
 @media (min-width: 475px) {
+  .header-title {
+    font-size: 3rem;
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+  }
 }
 
 /* sm */

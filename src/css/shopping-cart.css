@@ -1,7 +1,26 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+}
+
+.back-wrapper {
+  margin: 1rem;
+}
+.back-wrapper svg {
+  width: 30px;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
-  padding: 0 4rem;
+  align-items: center; /* Center align items horizontally */
+  /* padding: 0 4rem; */
   margin-top: 2rem;
 }
 
@@ -13,16 +32,51 @@
 .cart-header,
 .cart-item {
   display: flex;
+  width: 100%; /* Make sure items take full width */
 }
 
-.cart-header > * {
-  flex: 1;
-  border-bottom: 1px solid black; /* Optional: Add border bottom */
-  padding: 5px;
-  font-weight: bold;
-}
-
+.cart-header > *,
 .cart-item > * {
   flex: 1;
   padding: 5px;
+}
+
+.cart-header > * {
+  border-bottom: 1px solid black; /* Optional: Add border bottom */
+  font-weight: bold;
+}
+
+.total-amount {
+}
+
+/*meadia queries */
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .cart {
+    padding: 0 2rem;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .cart {
+    padding: 0 4rem;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+}
+
+/* xL */
+@media (min-width: 1280px) {
+}
+
+/* 2xL */
+@media (min-width: 1536px) {
 }
