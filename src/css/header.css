@@ -1,0 +1,97 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-gold: #c59d5f;
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+/* Header */
+.header {
+  background-color: hsl(196, 49%, 62%);
+  color: var(--clr-secondary-1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 2rem; /* Large title */
+  line-height: 1;
+  font-family: "Comic Sans MS", cursive;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+}
+
+.header-subtitle {
+  font-size: 0.8rem;
+  line-height: 1;
+  font-style: italic;
+  font-family: "Comic Sans MS", cursive;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+/* Navigation Link */
+.nav-link {
+  color: #fff; /* White text color */
+  text-decoration: none;
+  flex: none;
+  align-self: start;
+  padding: 0.2rem;
+}
+
+/*mobile first */
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+/* sm */
+@media (min-width: 640px) {
+}
+
+/* md */
+@media (min-width: 768px) {
+}
+
+/* lg */
+@media (min-width: 1024px) {
+}
+
+/* xL */
+@media (min-width: 1280px) {
+}
+
+/* 2xL */
+@media;
