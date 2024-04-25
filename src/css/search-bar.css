@@ -10,9 +10,13 @@ Variables
 }
 
 .search-wrapper {
-  background-color: var(--clr-primary-1);
-  padding: 1rem 0;
+  /* background-color: var(--clr-primary-1); */
+  /* padding: 1rem 0 0 0; */
 }
 .search-wrapper input {
   width: 100%;
+  padding: 0.5rem;
+  border-width: 10px;
+  border-color: var(--clr-primary-1);
+  /* border-radius: 10px; */
 }

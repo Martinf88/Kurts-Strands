@@ -8,7 +8,7 @@ export default function ShoppingCart() {
   return (
     <>
       <Header />
-      <div className="back-wrapper">
+      <div className="back-btn-wrapper">
         <NavLink to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"

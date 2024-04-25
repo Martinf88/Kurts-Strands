@@ -9,12 +9,6 @@ Variables
   --clr-secondary-1: hsl(48, 100%, 50%);
 }
 
-.container {
-  max-width: 100%; /* Set maximum width for container */
-  padding: 0 15px; /* Add padding to the container */
-  margin: 0 auto; /* Center the container */
-}
-
 .navbar {
   display: flex;
   /* justify-content: space-between; */

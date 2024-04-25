@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../css/navbar.css";
 import SearchBar from "./SearchBar";
 
-export default function Navbar() {
+export default function sortBar() {
   return (
     <section>
       <nav className="navbar">
