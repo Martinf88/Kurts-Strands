@@ -25,10 +25,10 @@ export default function Product() {
       </button>
       <div className="product-container">
         {toys.map((toy) => (
-          <div className="product" key={e.key}>
-            <img src={e.url} alt={e.title} />
-            <h2>{e.title}</h2>
-            <h3>{e.category}</h3>
+          <div className="product" key={toy.key}>
+            <img src={toy.url} alt={toy.title} />
+            <h2>{toy.title}</h2>
+            <h3>{toy.category}</h3>
             <div className="price-wrapper">
               <button
                 onClick={() => handleAddToCart(toy)}
@@ -36,7 +36,7 @@ export default function Product() {
               >
                 Köp
               </button>
-              <p>{e.price}kr</p>
+              <p>{toy.price}kr</p>
             </div>
           </div>
         ))}
