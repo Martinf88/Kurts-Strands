@@ -3,13 +3,17 @@ import "../css/shopping-cart.css";
 import useStore from "../data/store";
 
 export default function ShoppingCartItem({ setTotalPrice }) {
-  const { cart, addToCart } = useStore((state) => ({
+  const { cart, addToCart, removeOneFromCart } = useStore((state) => ({
     cart: state.cart,
     addToCart: state.addToCart,
+    removeOneFromCart: state.removeOneFromCart,
   }));
 
   const handleIncrease = (toy) => {
     addToCart(toy);
+  };
+  const handleDecrease = (id) => {
+    removeOneFromCart(id);
   };
   return (
     <>
@@ -21,7 +25,12 @@ export default function ShoppingCartItem({ setTotalPrice }) {
           </div>
           <p className="item-price">{toy.price}kr</p>
           <div className="amount-wrapper">
-            <button className="decrease-btn">-</button>
+            <button
+              className="decrease-btn"
+              onClick={() => handleDecrease(toy.id)}
+            >
+              -
+            </button>
             <input type="text" readOnly value={toy.count} />
             <button
               className="increase-btn"
