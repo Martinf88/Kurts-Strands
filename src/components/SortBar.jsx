@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../css/navbar.css";
+import "../css/sortbar.css";
 import SearchBar from "./SearchBar";
 
 export default function sortBar() {
   return (
     <section>
-      <nav className="navbar">
+      <nav className="sortbar">
         <div>
           <select name="" id="">
             <option value="name">A-Ö</option>

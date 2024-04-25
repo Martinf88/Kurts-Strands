@@ -1,23 +1,28 @@
 import React from "react";
 import "../css/shopping-cart.css";
+import useStore from "../data/store";
 
 export default function ShoppingCartItem() {
+  const { cart } = useStore((state) => ({
+    cart: state.cart,
+  }));
   return (
-    <div className="cart-item">
-      <div className="image-title-wrapper">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/009/974/271/original/3d-rendering-beach-ball-isolated-png.png"
-          alt="produkt"
-        />
-        <p>Badboll XL</p>
-      </div>
-      <p className="item-price">???kr</p>
-      <div className="amount-wrapper">
-        <button className="decrease-btn">-</button>
-        <input type="text" readOnly value="?" />
-        <button className="increase-btn">+</button>
-      </div>
-      <p className="item-price">???kr</p>
-    </div>
+    <>
+      {cart.map((toy) => (
+        <div key={toy.id} className="cart-item">
+          <div className="image-title-wrapper">
+            <img src={toy.url} alt="produkt" />
+            <p>{toy.title}</p>
+          </div>
+          <p className="item-price">{toy.price}kr</p>
+          <div className="amount-wrapper">
+            <button className="decrease-btn">-</button>
+            <input type="text" readOnly value="?" />
+            <button className="increase-btn">+</button>
+          </div>
+          <p className="item-price">???kr</p>
+        </div>
+      ))}
+    </>
   );
 }

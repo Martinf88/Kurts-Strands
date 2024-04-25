@@ -35,7 +35,6 @@ export default function ShoppingCart() {
           <p className="item-total-price">Totalt</p>
         </div>
         <ShoppingCartItem />
-        <ShoppingCartItem />
         <button className="btn">Lägg beställning</button>
         <p className="total-amount">Totalt: ?kr</p>
       </section>

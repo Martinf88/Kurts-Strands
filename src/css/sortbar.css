@@ -5,11 +5,14 @@ Variables
 :root {
   /* primary color */
   --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-btn-blue: hsl(248, 87%, 47%);
+  --clr-btn-red: hsl(0, 87%, 47%);
   /* secondary color */
   --clr-secondary-1: hsl(48, 100%, 50%);
+  --clr-white: hsl(0, 0%, 90%);
 }
 
-.navbar {
+.sortbar {
   display: flex;
   /* justify-content: space-between; */
   justify-content: end;
@@ -18,12 +21,10 @@ Variables
   gap: 1rem;
 }
 
-.navbar select {
+.sortbar select {
   margin-right: 0.5rem;
 }
 
-.navbar select {
-}
 /*mobile first */
 
 /* xs */
