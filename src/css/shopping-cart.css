@@ -34,8 +34,7 @@ Variables
   margin-top: 2rem;
 }
 
-.cart-header,
-.cart-item {
+.cart-header {
   display: flex;
   width: 100%; /* Make sure items take full width */
 }
@@ -43,7 +42,7 @@ Variables
 .cart-header > *,
 .cart-item > * {
   flex: 1;
-  padding: 5px;
+  padding: 4px;
 }
 
 .cart-header > * {
@@ -54,10 +53,10 @@ Variables
 /*-------------------------------- CART ITEM------------------------------ */
 .cart-item {
   display: flex;
-  justify-content: space-between;
-  width: 100%; /* Ensure items take full width */
   border-bottom: 1px solid #aaaaaa;
-  padding: 1rem;
+  padding: 1rem 0;
+  width: 100%;
+  align-items: center;
 }
 
 .cart-item img {
@@ -87,18 +86,22 @@ Variables
 }
 
 .amount-wrapper input {
-  width: 50px;
+  width: 40px;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 5px;
-  margin: 0 5px;
+  /* margin: 0 5px; */
 }
 .decrease-btn {
   background-color: var(--clr-btn-red);
 }
 .increase-btn {
   background-color: var(--clr-btn-blue);
+}
+
+.delete-btn {
+  padding: 0;
 }
 
 /*meadia queries */

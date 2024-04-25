@@ -3,8 +3,12 @@ import { NavLink } from "react-router-dom";
 import ShoppingCartItem from "../components/ShoppingCartItem";
 import Header from "../components/Header";
 import "../css/shopping-cart.css";
+import useStore from "../data/store";
 
 export default function ShoppingCart() {
+  const { totalPrice } = useStore((state) => ({
+    totalPrice: state.totalPrice,
+  }));
   return (
     <>
       <Header />
@@ -33,10 +37,11 @@ export default function ShoppingCart() {
           <p className="item-quantity">Antal</p>
           {/* <p className="item-price">á pris</p> */}
           <p className="item-total-price">Totalt</p>
+          <p>Ta Bort</p>
         </div>
         <ShoppingCartItem />
         <button className="btn">Lägg beställning</button>
-        <p className="total-amount">Totalt: ?kr</p>
+        <p className="total-amount">Totalt: {totalPrice}kr</p>
       </section>
     </>
   );

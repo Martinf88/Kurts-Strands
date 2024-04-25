@@ -2,10 +2,15 @@ import React from "react";
 import "../css/shopping-cart.css";
 import useStore from "../data/store";
 
-export default function ShoppingCartItem() {
-  const { cart } = useStore((state) => ({
+export default function ShoppingCartItem({ setTotalPrice }) {
+  const { cart, addToCart } = useStore((state) => ({
     cart: state.cart,
+    addToCart: state.addToCart,
   }));
+
+  const handleIncrease = (toy) => {
+    addToCart(toy);
+  };
   return (
     <>
       {cart.map((toy) => (
@@ -17,10 +22,16 @@ export default function ShoppingCartItem() {
           <p className="item-price">{toy.price}kr</p>
           <div className="amount-wrapper">
             <button className="decrease-btn">-</button>
-            <input type="text" readOnly value="?" />
-            <button className="increase-btn">+</button>
+            <input type="text" readOnly value={toy.count} />
+            <button
+              className="increase-btn"
+              onClick={() => handleIncrease(toy)}
+            >
+              +
+            </button>
           </div>
           <p className="item-price">???kr</p>
+          <button className="delete-btn">X</button>
         </div>
       ))}
     </>
