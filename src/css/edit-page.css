@@ -1,0 +1,16 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 400px;
+}
+.add-form > input {
+  margin-bottom: 1rem;
+}

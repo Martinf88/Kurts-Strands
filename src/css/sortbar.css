@@ -15,10 +15,15 @@ Variables
 .sortbar {
   display: flex;
   /* justify-content: space-between; */
-  justify-content: end;
+  justify-content: space-between;
   padding: 10px;
   background-color: var(--clr-secondary-1);
   gap: 1rem;
+}
+
+.sortBar-container {
+  position: sticky;
+  top: 0;
 }
 
 .sortbar select {

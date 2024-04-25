@@ -5,6 +5,8 @@ import Homepage from "./pages/Homepage";
 import "./index.css";
 import Loginpage from "./pages/Loginpage";
 import ShoppingCart from "./pages/ShoppingCart";
+import ThankYoypage from "./pages/ThankYoypage";
+import Editpage from "./pages/Editpage";
 
 const router = createHashRouter([
   {
@@ -18,6 +20,14 @@ const router = createHashRouter([
   {
     path: "/cart",
     element: <ShoppingCart />,
+  },
+  {
+    path: "/thanks",
+    element: <ThankYoypage />,
+  },
+  {
+    path: "/edit",
+    element: <Editpage />,
   },
 ]);
 

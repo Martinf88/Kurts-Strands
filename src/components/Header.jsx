@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 import "../css/header.css";
 
 export default function Header() {
@@ -9,9 +9,6 @@ export default function Header() {
         <h1 className="header-title">Kurt Strands</h1>
         <h2 className="header-subtitle">Strand- & Badleksaker sedan 1976</h2>
       </div>
-      <NavLink className="nav-link" to="/login">
-        Logga in
-      </NavLink>
     </header>
   );
 }

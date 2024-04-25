@@ -39,8 +39,8 @@ export default function ShoppingCartItem({ setTotalPrice }) {
               +
             </button>
           </div>
-          <p className="item-price">???kr</p>
-          <button className="delete-btn">X</button>
+          {/* <p className="item-price">???kr</p> */}
+          {/* <button className="delete-btn">X</button> */}
         </div>
       ))}
     </>

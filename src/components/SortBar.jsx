@@ -1,22 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "../css/sortbar.css";
 import SearchBar from "./SearchBar";
+import { NavLink } from "react-router-dom";
 
 export default function sortBar() {
   return (
-    <section>
+    <section className="sortBar-container">
+      <div className="input-container">
+        <SearchBar />
+      </div>
       <nav className="sortbar">
-        <div>
-          <select name="" id="">
-            <option value="name">A-Ö</option>
-            <option value="name">Ö-A</option>
-          </select>
-          <select name="" id="">
-            <option value="price">Stigande</option>
-            <option value="price">Fallande</option>
-          </select>
-        </div>
         <NavLink to="/cart">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,10 +27,17 @@ export default function sortBar() {
             />
           </svg>
         </NavLink>
+        <div>
+          <select name="" id="">
+            <option value="name">A-Ö</option>
+            <option value="name">Ö-A</option>
+          </select>
+          <select name="" id="">
+            <option value="price">Stigande</option>
+            <option value="price">Fallande</option>
+          </select>
+        </div>
       </nav>
-      <div className="input-container">
-        <SearchBar />
-      </div>
     </section>
   );
 }
