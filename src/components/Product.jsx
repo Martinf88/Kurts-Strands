@@ -1,18 +1,14 @@
 import React from "react";
 import "../css/product.css";
-import { getToys } from "../data/crud";
 import useStore from "../data/store";
 
 export default function Product() {
-  const { toys, setToys, addToCart } = useStore((state) => ({
+  const { toys, addToCart } = useStore((state) => ({
     toys: state.toys,
     setToys: state.setToys,
     addToCart: state.addToCart,
   }));
 
-  const handleGetToys = async () => {
-    setToys(await getToys());
-  };
   const handleAddToCart = (toy) => {
     const id = Date.now();
     addToCart({ ...toy, id });
@@ -20,9 +16,6 @@ export default function Product() {
   };
   return (
     <>
-      <button className="fetch-btn btn" onClick={handleGetToys}>
-        Våra Leksaker
-      </button>
       <div className="product-container">
         {toys.map((toy) => (
           <div className="product" key={toy.key}>
