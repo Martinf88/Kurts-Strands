@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 import { db } from "./fire";
 
@@ -10,6 +10,10 @@ export async function getToys() {
 
   const toyList = toySnapshot.docs.map((doc) => withKey(doc));
   return toyList;
+}
+
+export async function addToys(newToy) {
+  await addDoc(collectionRef, newToy);
 }
 
 function withKey(doc) {
