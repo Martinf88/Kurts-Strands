@@ -5,7 +5,6 @@ import useStore from "../data/store";
 import { deleteToy, getToys, updateToy } from "../data/crud";
 
 import EditForm from "../components/EditForm";
-import UpdateToyForm from "../components/UpdateToyForm";
 
 export default function Editpage() {
   const [url, setUrl] = useState("");
@@ -77,11 +76,6 @@ export default function Editpage() {
 
       {!isVisible ? (
         <>
-          <UpdateToyForm
-            handleEditToy={handleEditToy}
-            handleUpdateToy={handleUpdateToy}
-            handleRemoveToy={handleRemoveToy}
-          />
           <h1>Redigera Produkt</h1>
           <button onClick={() => handleGetToys()} className="btn">
             Hämta produkter
