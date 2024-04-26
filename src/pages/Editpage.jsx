@@ -5,6 +5,7 @@ import useStore from "../data/store";
 import { deleteToy, getToys, updateToy } from "../data/crud";
 
 import EditForm from "../components/EditForm";
+import EditNav from "../components/EditNav";
 
 export default function Editpage() {
   const [url, setUrl] = useState("");
@@ -59,84 +60,75 @@ export default function Editpage() {
   };
 
   return (
-    <div className="edit-container">
-      <div className="edit-nav">
-        <NavLink to="/">
-          <button className="btn">Logga ut</button>
-        </NavLink>
-        <NavLink>
-          <button className="btn">Lägg till en produkt</button>
-        </NavLink>
-        <NavLink>
-          <button className="btn">Redigera produkt</button>
-        </NavLink>
-      </div>
-      <h1>Lägg till produkt</h1>
-      <EditForm />
-
-      {!isVisible ? (
-        <>
-          <h1>Redigera Produkt</h1>
-          <button onClick={() => handleGetToys()} className="btn">
-            Hämta produkter
-          </button>
-          <div className="product-container">
-            {toys.map((toy) => (
-              <div className="product" key={toy.key}>
-                <button
-                  onClick={() => handleRemoveToy(toy.key)}
-                  className="edit-btn"
-                >
-                  Ta bort
-                </button>
-                <button onClick={() => handleEditToy(toy)} className="edit-btn">
-                  Redigera
-                </button>
-                <img src={toy.url} alt={toy.title} />
-                <h2>{toy.title}</h2>
-                <h3>{toy.category}</h3>
-                <div className="price-wrapper">
-                  <p>{toy.price}kr</p>
+    <>
+      <EditNav />
+      <div className="edit-container">
+        <h1>Redigera Produkt</h1>
+        {!isVisible ? (
+          <>
+            <button onClick={() => handleGetToys()} className="btn">
+              Hämta produkter
+            </button>
+            <div className="product-container">
+              {toys.map((toy) => (
+                <div className="product" key={toy.key}>
+                  <button
+                    onClick={() => handleRemoveToy(toy.key)}
+                    className="edit-btn"
+                  >
+                    Ta bort
+                  </button>
+                  <button
+                    onClick={() => handleEditToy(toy)}
+                    className="edit-btn"
+                  >
+                    Redigera
+                  </button>
+                  <img src={toy.url} alt={toy.title} />
+                  <h2>{toy.title}</h2>
+                  <h3>{toy.category}</h3>
+                  <div className="price-wrapper">
+                    <p>{toy.price}kr</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </>
-      ) : (
-        <>
-          <h1>Redigering Vy</h1>
-          <label>Url</label>
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-          />
-          <label>Produktnamn</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <label>Kategori</label>
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-          <label>Pris</label>
-          <input
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-          <button
-            className="btn"
-            onClick={() => handleUpdateToy(selectedToyId)}
-          >
-            Save
-          </button>
-        </>
-      )}
-    </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <label>Url</label>
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+            />
+            <label>Produktnamn</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <label>Kategori</label>
+            <input
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+            <label>Pris</label>
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <button
+              className="btn"
+              onClick={() => handleUpdateToy(selectedToyId)}
+            >
+              Save
+            </button>
+          </>
+        )}
+      </div>
+    </>
   );
 }

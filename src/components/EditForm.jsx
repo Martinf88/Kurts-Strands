@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../css/edit-page.css";
 import { addToys, getToys } from "../data/crud";
 import useStore from "../data/store";
+import { NavLink } from "react-router-dom";
+import EditNav from "./EditNav";
 
 export default function EditForm() {
   const [url, setUrl] = useState("");
@@ -40,30 +42,40 @@ export default function EditForm() {
   };
 
   return (
-    <form className="add-form">
-      <label>Url</label>
-      <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-      <label>Produktnamn</label>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <label>Kategori</label>
-      <input
-        type="text"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <label>Pris</label>
-      <input
-        type="text"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <button onClick={handleAddNewToy} type="submit">
-        Lägg till
-      </button>
-    </form>
+    <>
+      <EditNav />
+      <div className="edit-container">
+        <h1>Lägg till produkt</h1>
+        <form className="add-form">
+          <label>Url</label>
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
+          <label>Produktnamn</label>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <label>Kategori</label>
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+          <label>Pris</label>
+          <input
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <button onClick={handleAddNewToy} type="submit">
+            Lägg till
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

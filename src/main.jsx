@@ -7,6 +7,7 @@ import Loginpage from "./pages/Loginpage";
 import ShoppingCart from "./pages/ShoppingCart";
 import ThankYoypage from "./pages/ThankYoypage";
 import Editpage from "./pages/Editpage";
+import EditForm from "./components/EditForm";
 
 const router = createHashRouter([
   {
@@ -28,6 +29,10 @@ const router = createHashRouter([
   {
     path: "/edit",
     element: <Editpage />,
+  },
+  {
+    path: "/add",
+    element: <EditForm />,
   },
 ]);
 
