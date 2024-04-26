@@ -1,4 +1,11 @@
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  query,
+} from "firebase/firestore";
 
 import { db } from "./fire";
 
@@ -14,6 +21,15 @@ export async function getToys() {
 
 export async function addToys(newToy) {
   await addDoc(collectionRef, newToy);
+}
+
+export async function deleteToy(name) {
+  const q = query(collectionRef, where("name", "==", name));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((d) => {
+    const ref = doc(db, "toys", d.ref.id);
+    deleteDoc(ref);
+  });
 }
 
 function withKey(doc) {
