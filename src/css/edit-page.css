@@ -14,3 +14,7 @@
 .add-form > input {
   margin-bottom: 1rem;
 }
+
+.edit-btn {
+  padding: 0.5rem;
+}

@@ -23,13 +23,14 @@ export async function addToys(newToy) {
   await addDoc(collectionRef, newToy);
 }
 
-export async function deleteToy(name) {
-  const q = query(collectionRef, where("name", "==", name));
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((d) => {
-    const ref = doc(db, "toys", d.ref.id);
-    deleteDoc(ref);
-  });
+export async function deleteToy(toyId) {
+  try {
+    await deleteDoc(doc(collectionRef, toyId));
+    console.log("Toy deleted successfully");
+  } catch (error) {
+    console.error("Error deleting toy: ", error);
+    throw error;
+  }
 }
 
 function withKey(doc) {
