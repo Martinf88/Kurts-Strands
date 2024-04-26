@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import "../css/edit-page.css";
-import { addToys } from "../data/crud";
+import { addToys, getToys } from "../data/crud";
+import useStore from "../data/store";
 
 export default function EditForm() {
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+
+  const { toys, setToys } = useStore((state) => ({
+    toys: state.toys,
+    setToys: state.setToys,
+  }));
+
+  const handleGetToys = async () => {
+    setToys(await getToys());
+  };
 
   const handleAddNewToy = async (e) => {
     e.preventDefault();
@@ -19,6 +29,7 @@ export default function EditForm() {
     };
     try {
       await addToys(newToy);
+      await handleGetToys();
       setUrl("");
       setTitle("");
       setCategory("");
