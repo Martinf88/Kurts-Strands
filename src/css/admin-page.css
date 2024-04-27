@@ -1,0 +1,129 @@
+/* =============== 
+Variables
+===============
+ */
+:root {
+  /* primary color */
+  --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-btn-blue: hsl(248, 87%, 47%);
+  --clr-btn-red: hsl(0, 87%, 47%);
+  /* secondary color */
+  --clr-secondary-1: hsl(48, 100%, 50%);
+  --clr-white: hsl(0, 0%, 90%);
+}
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+}
+
+.edit-container-title {
+  margin-top: 2rem;
+  color: #333;
+}
+
+.edit-nav-btn {
+  padding: 0.5rem;
+  background-color: var(--clr-btn-red);
+  color: white;
+  border-radius: 5px;
+}
+.edit-btn {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.remove-btn {
+  padding: 8px 15px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
+
+.admin-btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 10px 20px;
+}
+.edit-nav-links {
+  display: flex;
+  margin-left: 10px;
+}
+.edit-nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0 0 0 20px;
+}
+
+.edit-nav-link:not(:last-child) {
+  border-right: 1px solid white;
+}
+
+.edit-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* UPDATE FORM */
+
+.update-container {
+  font-weight: bold;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.update-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.update-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.update-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-container button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

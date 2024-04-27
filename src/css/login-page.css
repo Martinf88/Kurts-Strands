@@ -13,30 +13,63 @@ Variables
 }
 
 .login-page {
-  background-color: var(--clr-primary-1);
-  height: 100dvh;
+  padding: 2rem;
 }
 
-.login-wrapper {
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.login-input {
+  margin-bottom: 15px;
+}
+
+.login-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-error-message {
+  color: red;
+  margin: 15px 0 0 0;
+}
+
+.btn-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: var(--clr-secondary-1);
-  border-radius: 10px;
-  margin: 3rem 1rem;
-  padding: 1rem 1rem 3rem;
-  gap: 1rem;
+  justify-content: center;
 }
 
-.login-title {
-  text-align: center;
+.login-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.user-wrapper,
-.password-wrapper {
-  display: flex;
-  flex-direction: column;
+.login-button:hover {
+  background-color: #0056b3;
 }
 
-.login-btn {
-  margin-top: 2rem;
+.login-link {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+.login-link:hover {
+  text-decoration: underline;
 }

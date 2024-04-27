@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../css/edit-page.css";
+import "../css/admin-page.css";
 import { addToys, getToys } from "../data/crud";
 import useStore from "../data/store";
-import { NavLink } from "react-router-dom";
 import EditNav from "./EditNav";
 
 export default function EditForm() {
@@ -11,8 +10,7 @@ export default function EditForm() {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
 
-  const { toys, setToys } = useStore((state) => ({
-    toys: state.toys,
+  const { setToys } = useStore((state) => ({
     setToys: state.setToys,
   }));
 
@@ -45,8 +43,8 @@ export default function EditForm() {
     <>
       <EditNav />
       <div className="edit-container">
-        <h1>Lägg till produkt</h1>
-        <form className="add-form">
+        <h1 className="edit-container-title">Lägg till produkt</h1>
+        <form className="update-container">
           <label>Url</label>
           <input
             type="text"

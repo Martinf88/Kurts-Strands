@@ -6,7 +6,7 @@ import "./index.css";
 import Loginpage from "./pages/Loginpage";
 import ShoppingCart from "./pages/ShoppingCart";
 import ThankYoypage from "./pages/ThankYoypage";
-import Editpage from "./pages/Editpage";
+import AdminPage from "./pages/AdminPage";
 import EditForm from "./components/EditForm";
 
 const router = createHashRouter([

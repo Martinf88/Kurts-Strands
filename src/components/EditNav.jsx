@@ -7,12 +7,14 @@ export default function EditNav() {
       <NavLink to="/">
         <button className="edit-nav-btn">Logga ut</button>
       </NavLink>
-      <NavLink to="/add">
-        <button className="edit-nav-btn">Lägg till en produkt</button>
-      </NavLink>
-      <NavLink to="/admin">
-        <button className="edit-nav-btn">Redigera produkt</button>
-      </NavLink>
+      <div className="edit-nav-links">
+        <NavLink to="/add" className="edit-nav-link">
+          Lägg till en produkt
+        </NavLink>
+        <NavLink to="/admin" className="edit-nav-link">
+          Redigera produkt
+        </NavLink>
+      </div>
     </div>
   );
 }

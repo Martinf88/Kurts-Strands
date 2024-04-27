@@ -41,8 +41,7 @@ Variables
   color: #888;
 }
 
-.buy-btn,
-.btn {
+.buy-btn {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -54,7 +53,7 @@ Variables
   transition: background-color 0.3s ease;
 }
 
-.product button:hover {
+.buy-btn:hover {
   background-color: var(--clr-primary-1);
 }
 

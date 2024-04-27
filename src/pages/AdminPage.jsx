@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import "../css/edit-page.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import "../css/admin-page.css";
 import useStore from "../data/store";
 import { deleteToy, getToys, updateToy } from "../data/crud";
-
-import EditForm from "../components/EditForm";
 import EditNav from "../components/EditNav";
 
 export default function AdminPage() {
@@ -63,39 +62,39 @@ export default function AdminPage() {
     <>
       <EditNav />
       <div className="edit-container">
-        <h1>Redigera Produkt</h1>
+        <h1 className="edit-container-title">Hantera Produkter</h1>
         {!isVisible ? (
           <>
             <button onClick={() => handleGetToys()} className="btn">
               Hämta produkter
             </button>
-            <div className="product-container">
-              {toys.map((toy) => (
-                <div className="product" key={toy.key}>
+            {toys.map((toy) => (
+              <div className="product" key={toy.key}>
+                <div className="admin-btn-wrapper">
                   <button
                     onClick={() => handleRemoveToy(toy.key)}
-                    className="edit-btn"
+                    className="remove-btn"
                   >
-                    Ta bort
+                    <FontAwesomeIcon icon={faTrash} className="remove-icon" />
                   </button>
                   <button
                     onClick={() => handleEditToy(toy)}
                     className="edit-btn"
                   >
-                    Redigera
+                    <FontAwesomeIcon icon={faEdit} className="edit-icon" />
                   </button>
-                  <img src={toy.url} alt={toy.title} />
-                  <h2>{toy.title}</h2>
-                  <h3>{toy.category}</h3>
-                  <div className="price-wrapper">
-                    <p>{toy.price}kr</p>
-                  </div>
                 </div>
-              ))}
-            </div>
+                <img src={toy.url} alt={toy.title} />
+                <h2>{toy.title}</h2>
+                <h3>{toy.category}</h3>
+                <div className="price-wrapper">
+                  <p>{toy.price}kr</p>
+                </div>
+              </div>
+            ))}
           </>
         ) : (
-          <>
+          <div className="update-container">
             <label>Url</label>
             <input
               type="text"
@@ -120,13 +119,10 @@ export default function AdminPage() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
-            <button
-              className="btn"
-              onClick={() => handleUpdateToy(selectedToyId)}
-            >
-              Save
+            <button onClick={() => handleUpdateToy(selectedToyId)}>
+              Spara
             </button>
-          </>
+          </div>
         )}
       </div>
     </>

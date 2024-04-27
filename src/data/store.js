@@ -13,17 +13,18 @@ const useStore = create((set) => ({
   addToCart: (toy) =>
     set((state) => {
       const existingItem = state.cart.find((item) => item.title === toy.title);
-      if (existingItem) {
-        const updatedCart = state.cart.map((item) =>
-          item.title === toy.title ? { ...item, count: item.count + 1 } : item
-        );
-        return { cart: updatedCart, totalPrice: state.totalPrice + toy.price };
-      } else {
-        return {
-          cart: [...state.cart, { ...toy, count: 1 }],
-          totalPrice: state.totalPrice + toy.price,
-        };
-      }
+      const updatedCart = existingItem
+        ? state.cart.map((item) =>
+            item.title === toy.title ? { ...item, count: item.count + 1 } : item
+          )
+        : [...state.cart, { ...toy, count: 1 }];
+
+      const totalPrice = updatedCart.reduce(
+        (total, item) => total + item.price * item.count,
+        0
+      );
+
+      return { cart: updatedCart, totalPrice };
     }),
 
   removeOneFromCart: (id) =>
