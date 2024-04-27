@@ -27,8 +27,8 @@ const router = createHashRouter([
     element: <ThankYoypage />,
   },
   {
-    path: "/edit",
-    element: <Editpage />,
+    path: "/admin",
+    element: <AdminPage />,
   },
   {
     path: "/add",

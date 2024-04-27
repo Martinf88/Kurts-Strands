@@ -7,7 +7,7 @@ import { deleteToy, getToys, updateToy } from "../data/crud";
 import EditForm from "../components/EditForm";
 import EditNav from "../components/EditNav";
 
-export default function Editpage() {
+export default function AdminPage() {
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");

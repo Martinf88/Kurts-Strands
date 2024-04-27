@@ -10,7 +10,7 @@ export default function EditNav() {
       <NavLink to="/add">
         <button className="edit-nav-btn">Lägg till en produkt</button>
       </NavLink>
-      <NavLink to="/edit">
+      <NavLink to="/admin">
         <button className="edit-nav-btn">Redigera produkt</button>
       </NavLink>
     </div>

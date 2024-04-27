@@ -18,7 +18,7 @@ export default function Loginpage() {
           <label>Lösenord</label>
           <input type="text" />
         </div>
-        <NavLink to="/edit">
+        <NavLink to="/admin">
           <button onClick={handleLogin} className="login-btn btn">
             Logga in
           </button>
