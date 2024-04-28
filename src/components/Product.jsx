@@ -14,6 +14,7 @@ export default function Product() {
     addToCart({ ...toy, id });
     console.log("added to cart");
   };
+
   return (
     <>
       <div className="product-container">

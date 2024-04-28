@@ -4,6 +4,7 @@ const useStore = create((set) => ({
   toys: [],
   cart: [],
   totalPrice: 0,
+  count: 0,
 
   setToys: (newToys) =>
     set((state) => ({
