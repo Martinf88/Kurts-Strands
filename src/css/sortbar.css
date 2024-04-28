@@ -4,7 +4,7 @@ Variables
  */
 :root {
   /* primary color */
-  --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-primary-1: hsl(211, 100%, 50%);
   --clr-btn-blue: hsl(248, 87%, 47%);
   --clr-btn-red: hsl(0, 87%, 47%);
   /* secondary color */
@@ -16,9 +16,10 @@ Variables
   display: flex;
   /* justify-content: space-between; */
   justify-content: space-between;
-  padding: 1rem;
-  background-color: var(--clr-secondary-1);
+  padding: 0.7rem;
+  background-color: hsl(211, 100%, 20%);
   gap: 1rem;
+  margin-top: 1px;
 }
 
 .sortBar-container {

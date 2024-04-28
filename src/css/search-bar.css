@@ -4,7 +4,7 @@ Variables
  */
 :root {
   /* primary color */
-  --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-primary-1: hsl(211, 100%, 50%);
   --clr-btn-blue: hsl(248, 87%, 47%);
   --clr-btn-red: hsl(0, 87%, 47%);
   /* secondary color */
@@ -18,8 +18,8 @@ Variables
 }
 .search-wrapper input {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-width: 10px;
-  border-color: var(--clr-primary-1);
+  border-color: hsl(211, 100%, 50%);
   /* border-radius: 10px; */
 }

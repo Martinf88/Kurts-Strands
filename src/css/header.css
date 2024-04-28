@@ -14,11 +14,12 @@ Variables
 
 /* Header */
 .header {
-  background-color: var(--clr-primary-1);
+  background-color: hsl(211, 100%, 50%);
   color: var(--clr-secondary-1);
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
+  margin-bottom: 1px;
 }
 
 .header-title {
