@@ -12,19 +12,13 @@ export default function Homepage() {
     setToys: state.setToys,
   }));
 
-  const handleGetToys = async () => {
-    setToys(await getToys());
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      setToys(await getToys());
+    };
 
-  // USEEFFEKT FÖR SENARE BRUK
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       setToys(await getToys());
-  //     };
-
-  //     fetchData();
-  //   }, []);
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -35,9 +29,9 @@ export default function Homepage() {
         </div>
       </section> */}
       <SortBar />
-      <button onClick={handleGetToys} className="call-to-action btn">
+      {/* <button onClick={handleGetToys} className="call-to-action btn">
         Våra Leksaker
-      </button>
+      </button> */}
       <section className="main-section">
         <Product />
       </section>
