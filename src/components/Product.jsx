@@ -16,8 +16,8 @@ export default function Product() {
   };
 
   return (
-    <>
-      <div className="product-container">
+    <div className="product-container">
+      <div className="product-grid">
         {toys.map((toy) => (
           <div className="product" key={toy.key}>
             <img src={toy.url} alt={toy.title} />
@@ -35,6 +35,6 @@ export default function Product() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

@@ -103,11 +103,11 @@ export default function AdminPage() {
       <EditNav />
       <div className="edit-container">
         <h1 className="edit-container-title">Hantera Produkter</h1>
+        <button onClick={() => handleGetToys()} className="btn">
+          Hämta produkter
+        </button>
         {!isVisible ? (
-          <>
-            <button onClick={() => handleGetToys()} className="btn">
-              Hämta produkter
-            </button>
+          <div className="edit-product-grid">
             {toys.map((toy) => (
               <div className="product" key={toy.key}>
                 <div className="admin-btn-wrapper">
@@ -132,7 +132,7 @@ export default function AdminPage() {
                 </div>
               </div>
             ))}
-          </>
+          </div>
         ) : (
           <div className="update-container">
             <label>Url</label>

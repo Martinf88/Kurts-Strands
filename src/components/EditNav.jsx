@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "../css/admin-page.css";
 
 export default function EditNav() {
   return (
@@ -11,6 +12,7 @@ export default function EditNav() {
         <NavLink to="/add" className="edit-nav-link">
           Lägg till en produkt
         </NavLink>
+        <div className="devider"></div>
         <NavLink to="/admin" className="edit-nav-link">
           Redigera produkt
         </NavLink>

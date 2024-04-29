@@ -45,6 +45,8 @@ export default function AddForm() {
       setTitleTouched(false);
       setCategory("");
       setCategoryTouched(false);
+      setPrice("");
+      setPriceTouched(false);
     } catch (error) {
       console.error("Error adding new toy: ", error);
     }
