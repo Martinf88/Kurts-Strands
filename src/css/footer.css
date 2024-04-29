@@ -4,12 +4,12 @@ Variables
  */
 :root {
   /* primary color */
-  --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-primary-1: hsl(211, 100%, 50%);
   --clr-btn-blue: hsl(248, 87%, 47%);
   --clr-btn-red: hsl(0, 87%, 47%);
   /* secondary color */
   --clr-secondary-1: hsl(48, 100%, 50%);
-  --clr-white: hsl(0, 0%, 90%);
+  --clr-white: hsl(0, 0%, 96%);
 }
 
 .footer {
@@ -19,9 +19,21 @@ Variables
   align-items: center;
   padding: 2rem 0;
   gap: 1rem;
+  color: white;
+}
+
+.footer p {
+  text-decoration: 1px solid underline;
+  text-underline-position: under;
+  text-decoration-thickness: 8;
+  user-select: none;
 }
 
 .links-wrapper {
   display: flex;
   gap: 1rem;
+}
+
+.footer-link {
+  color: var(--clr-white);
 }

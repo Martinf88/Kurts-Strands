@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import ShoppingCartItem from "../components/ShoppingCartItem";
 import Header from "../components/Header";
 import "../css/shopping-cart.css";
 import useStore from "../data/store";
+import "../css/admin-page.css";
 
 export default function ShoppingCart() {
-  const { totalPrice, cart } = useStore((state) => ({
+  const { totalPrice, cart, clearCart } = useStore((state) => ({
     totalPrice: state.totalPrice,
     cart: state.cart,
+    clearCart: state.clearCart,
   }));
+  const [checkout, setCheckout] = useState(false);
+
+  //clear shopping cart on checkout
+  const handleCheckout = () => {
+    setCheckout(true);
+  };
+
+  // Funktion för att hantera beställning
+  const placeOrder = () => {
+    clearCart();
+  };
 
   return (
     <>
@@ -34,26 +47,49 @@ export default function ShoppingCart() {
 
       <section className="cart">
         {cart.length === 0 ? (
-          <h1 className="empty-cart-message">
-            DIN VARUKORG ÄR TOM!!!!!!!!!!!!!!
-          </h1>
-        ) : (
+          <div className="message-wrapper">
+            <h1 className="empty-cart-message">
+              Det är tomt här! Varför inte lägga till något i din varukorg?
+            </h1>
+          </div>
+        ) : !checkout ? (
           <>
             <h1 className="cart-title">Din Varukorg</h1>
             <div className="cart-header">
               <p className="item-name">Produkt</p>
               <p className="item-price">Pris</p>
               <p className="item-quantity">Antal</p>
-              {/* <p className="item-price">á pris</p> */}
-              {/* <p className="item-total-price">Totalt</p> */}
-              {/* <p>Ta Bort</p> */}
+              {/* <p className="item-price">á pris</p>
+              <p className="item-total-price">Totalt</p>
+              <p>Ta Bort</p> */}
             </div>
             <ShoppingCartItem />
-            <NavLink to="/thanks">
-              <button className="btn">Lägg beställning</button>
-            </NavLink>
-            <p className="total-amount">Totalt: {totalPrice}kr</p>
+            <div className="checkout-wrapper">
+              <p className="total-amount">Totalt: {totalPrice}kr</p>
+
+              <button onClick={handleCheckout} className="btn place-order-btn">
+                Gå till kassan
+              </button>
+            </div>
           </>
+        ) : (
+          <div className="edit-container">
+            <form className="update-container">
+              <label>Namn</label>
+              <input type="text" />
+
+              <label>Adress</label>
+              <input type="text" />
+
+              <label>Postnummer</label>
+              <input type="text" />
+              <NavLink to="/thanks">
+                <button className="btn place-order-btn" onClick={placeOrder}>
+                  Lägg Beställning
+                </button>
+              </NavLink>
+            </form>
+          </div>
         )}
       </section>
     </>

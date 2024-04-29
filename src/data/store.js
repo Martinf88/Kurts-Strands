@@ -54,6 +54,8 @@ const useStore = create((set) => ({
         totalPrice: newTotalPrice,
       };
     }),
+
+  clearCart: () => set({ cart: [], totalPrice: 0, count: 0 }),
 }));
 
 export default useStore;

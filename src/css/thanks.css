@@ -4,7 +4,7 @@ Variables
  */
 :root {
   /* primary color */
-  --clr-primary-1: hsl(196, 49%, 62%);
+  --clr-primary-1: hsl(211, 100%, 50%);
   --clr-btn-blue: hsl(248, 87%, 47%);
   --clr-btn-red: hsl(0, 87%, 47%);
   /* secondary color */
@@ -13,14 +13,19 @@ Variables
 }
 
 .thanks-wrapper {
-  background-color: var(--clr-primary-1);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--clr-secondary-1);
+  color: var(--clr-primary-1);
+  text-align: center;
 }
 .thanks-wrapper h1 {
   font-size: 3.5rem;
+}
+
+.thanks-link {
+  font-size: 2rem;
+  color: var(--clr-primary-1);
 }
