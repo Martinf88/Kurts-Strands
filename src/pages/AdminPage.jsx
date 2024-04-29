@@ -37,9 +37,10 @@ export default function AdminPage() {
     ? ""
     : "Fyll i fältet med enbart siffor";
 
-  //Check if all inputfields are filled in correctly
+  //Check if all inputfields are filled in correctly for button disabled
   const formIsValid =
     urlIsValid && titleIsValid && categoryIsValid && priceIsValid;
+
   // CSS variables
   let urlErrorClass = urlTouched && !urlIsValid ? "error" : "error hidden";
   let urlClass = urlIsValid ? "valid" : "invalid";
@@ -70,6 +71,16 @@ export default function AdminPage() {
     }
   };
 
+  const handleEditToy = (toy) => {
+    setIsVisible(true);
+    setSelectedToyId(toy.key);
+    setUrl(toy.url);
+    setTitle(toy.title);
+    setCategory(toy.category);
+    setPrice(toy.price);
+    console.log(isVisible);
+  };
+
   const handleUpdateToy = async (selectedToyId) => {
     const updatedToy = { url, title, category, price };
     try {
@@ -86,16 +97,6 @@ export default function AdminPage() {
     setTitleTouched(false);
     setCategory("");
     setCategoryTouched(false);
-  };
-
-  const handleEditToy = (toy) => {
-    setIsVisible(true);
-    setSelectedToyId(toy.key);
-    setUrl(toy.url);
-    setTitle(toy.title);
-    setCategory(toy.category);
-    setPrice(toy.price);
-    console.log(isVisible);
   };
 
   return (
