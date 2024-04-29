@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import "../css/admin-page.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import "../css/admin-page.css";
+import EditNav from "../components/EditNav";
 import useStore from "../data/store";
 import { deleteToy, getToys, updateToy } from "../data/crud";
-import EditNav from "../components/EditNav";
 
 export default function AdminPage() {
   const [url, setUrl] = useState("");
+  const [urlTouched, setUrlTouched] = useState(false);
   const [title, setTitle] = useState("");
+  const [titleTouched, setTitleTouched] = useState(false);
   const [category, setCategory] = useState("");
+  const [categoryTouched, setCategoryTouched] = useState(false);
   const [price, setPrice] = useState("");
+  const [priceTouched, setPriceTouched] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedToyId, setSelectedToyId] = useState(null);
 
@@ -18,6 +22,36 @@ export default function AdminPage() {
     toys: state.toys,
     setToys: state.setToys,
   }));
+
+  // Validate values
+  const urlIsValid = url.length > 0;
+  const titleIsValid = title.length > 0;
+  const categoryIsValid = category.length > 0;
+  const priceIsValid = /^\d+$/.test(price);
+
+  //Error messages
+  const urlErrorMessage = urlIsValid ? "" : "Fyll i en Url.";
+  const titleErrorMessage = titleIsValid ? "" : "Fyll i ett produktnamn.";
+  const categoryErrorMessage = categoryIsValid ? "" : "Fyll i en kategori.";
+  const priceErrorMessage = priceIsValid
+    ? ""
+    : "Fyll i fältet med enbart siffor";
+
+  //Check if all inputfields are filled in correctly
+  const formIsValid =
+    urlIsValid && titleIsValid && categoryIsValid && priceIsValid;
+  // CSS variables
+  let urlErrorClass = urlTouched && !urlIsValid ? "error" : "error hidden";
+  let urlClass = urlIsValid ? "valid" : "invalid";
+  let titleErrorClass =
+    titleTouched && !titleIsValid ? "error" : "error hidden";
+  let titleClass = titleIsValid ? "valid" : "invalid";
+  let categoryErrorClass =
+    categoryTouched && !categoryIsValid ? "error" : "error hidden";
+  let categoryClass = categoryIsValid ? "valid" : "invalid";
+  let priceErrorClass =
+    priceTouched && !priceIsValid ? "error" : "error hidden";
+  let priceClass = priceIsValid ? "valid" : "invalid";
 
   const handleGetToys = async () => {
     setToys(await getToys());
@@ -46,6 +80,12 @@ export default function AdminPage() {
       console.error("Error updating toy: ", error);
     }
     setIsVisible(false);
+    setUrl("");
+    setUrlTouched(false);
+    setTitle("");
+    setTitleTouched(false);
+    setCategory("");
+    setCategoryTouched(false);
   };
 
   const handleEditToy = (toy) => {
@@ -97,29 +137,47 @@ export default function AdminPage() {
           <div className="update-container">
             <label>Url</label>
             <input
+              className={urlClass}
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
+              onBlur={() => setUrlTouched(true)}
             />
+            <p className={urlErrorClass}> {urlErrorMessage} &nbsp; </p>
             <label>Produktnamn</label>
             <input
+              className={titleClass}
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              onBlur={() => setTitleTouched(true)}
             />
+            <p className={titleErrorClass}> {titleErrorMessage} &nbsp; </p>
             <label>Kategori</label>
             <input
+              className={categoryClass}
               type="text"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
+              onBlur={() => setCategoryTouched(true)}
             />
+            <p className={categoryErrorClass}>
+              {" "}
+              {categoryErrorMessage} &nbsp;{" "}
+            </p>
             <label>Pris</label>
             <input
+              className={priceClass}
               type="text"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              onBlur={() => setPriceTouched(true)}
             />
-            <button onClick={() => handleUpdateToy(selectedToyId)}>
+            <p className={priceErrorClass}> {priceErrorMessage} &nbsp; </p>
+            <button
+              disabled={!formIsValid}
+              onClick={() => handleUpdateToy(selectedToyId)}
+            >
               Spara
             </button>
           </div>

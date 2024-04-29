@@ -7,7 +7,7 @@ import Loginpage from "./pages/Loginpage";
 import ShoppingCart from "./pages/ShoppingCart";
 import ThankYoypage from "./pages/ThankYoypage";
 import AdminPage from "./pages/AdminPage";
-import EditForm from "./components/EditForm";
+import AddForm from "./components/AddForm";
 
 const router = createHashRouter([
   {
@@ -32,7 +32,7 @@ const router = createHashRouter([
   },
   {
     path: "/add",
-    element: <EditForm />,
+    element: <AddForm />,
   },
 ]);
 

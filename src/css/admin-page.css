@@ -127,3 +127,18 @@ Variables
 .update-container button:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
+
+.error.hidden {
+  visibility: hidden;
+}
+.error {
+  color: hsl(0, 100%, 45%);
+}
+
+input.invalid {
+  border: 1px solid hsl(0, 100%, 45%);
+}
+
+:disabled {
+  opacity: 0.5;
+}
