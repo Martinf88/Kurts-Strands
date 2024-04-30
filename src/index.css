@@ -28,7 +28,7 @@ Variables
 
 body {
   background-color: hsl(211, 100%, 97%);
-  font-family: "Comic Sans MS", "Roboto", cursive;
+  font-family: "Roboto", "Comic Sans MS", sans-serif;
 }
 
 button {
