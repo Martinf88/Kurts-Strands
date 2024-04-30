@@ -26,6 +26,7 @@ Variables
 
 body {
   background-color: hsl(211, 100%, 97%);
+  font-family: "Comic Sans MS", cursive;
 }
 
 button {
@@ -33,6 +34,7 @@ button {
   background: none;
   color: inherit;
   cursor: pointer;
+  font-family: inherit;
 }
 
 img {
