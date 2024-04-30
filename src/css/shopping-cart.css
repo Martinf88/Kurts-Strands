@@ -115,7 +115,11 @@ Variables
 }
 
 .delete-btn {
-  padding: 0;
+  background-color: var(--clr-btn-red);
+  color: white;
+  border-radius: 5px;
+  flex: 0;
+  padding: 0.3rem 0.8rem;
 }
 
 .checkout-wrapper {
