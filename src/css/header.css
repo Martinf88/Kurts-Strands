@@ -27,7 +27,7 @@ Variables
   line-height: 1;
   font-family: "Comic Sans MS", cursive;
   margin-top: 2rem;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 
 .header-subtitle {
@@ -36,7 +36,7 @@ Variables
   font-style: italic;
   font-family: "Comic Sans MS", cursive;
   margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 
 /* Navigation Link */

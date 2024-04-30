@@ -19,11 +19,7 @@ export default function sortBar() {
         <SearchBar />
       </div>
       <nav className="sortbar">
-        <NavLink to="/cart" className="cart-nav">
-          <FontAwesomeIcon icon={faShoppingBasket} className="cart-icon" />
-          <span className="total-count">{totalCount}</span>
-        </NavLink>
-        <div>
+        <div className="sorting-wrapper">
           <select name="" id="">
             <option value="name">A-Ö</option>
             <option value="name">Ö-A</option>
@@ -33,6 +29,10 @@ export default function sortBar() {
             <option value="price">Fallande</option>
           </select>
         </div>
+        <NavLink to="/cart" className="cart-nav">
+          <FontAwesomeIcon icon={faShoppingBasket} className="cart-icon" />
+          <span className="total-count">{totalCount}</span>
+        </NavLink>
       </nav>
     </section>
   );

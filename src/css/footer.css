@@ -35,5 +35,11 @@ Variables
 }
 
 .footer-link {
-  color: var(--clr-white);
+  color: white;
+}
+
+.footer-btn {
+  text-decoration: 1px solid underline;
+  text-underline-position: under;
+  text-decoration-thickness: 8;
 }

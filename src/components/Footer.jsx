@@ -2,16 +2,21 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../css/footer.css";
 
-export default function Footer() {
+export default function Footer({ topRef }) {
+  const scrollToTop = () => {
+    // Scrolla till ankarelementet längst upp på sidan
+    topRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <footer className="footer">
       <div className="links-wrapper">
         <NavLink to="/login" className="footer-link">
           Logga in
         </NavLink>
-        <NavLink to="/" className="footer-link">
+        <button className="footer-btn" onClick={scrollToTop}>
           Hem
-        </NavLink>
+        </button>
         <p>Kontakt</p>
         <p>Om oss</p>
       </div>

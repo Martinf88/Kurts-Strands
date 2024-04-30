@@ -16,15 +16,18 @@ Variables
   display: flex;
   /* justify-content: space-between; */
   justify-content: space-between;
-  padding: 0.7rem;
+  padding: 0.7rem 1.5rem;
   background-color: hsl(211, 100%, 20%);
   gap: 1rem;
-  margin-top: 1px;
 }
 
 .sortBar-container {
   position: sticky;
   top: 0;
+}
+
+.sorting-wrapper {
+  display: flex;
 }
 
 .sortbar select {

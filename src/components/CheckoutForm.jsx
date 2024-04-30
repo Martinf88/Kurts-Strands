@@ -47,6 +47,7 @@ export default function CheckoutForm({ placeOrder }) {
 
   return (
     <div className="edit-container">
+      <h1>Leveransuppgifter</h1>
       <form className="update-container">
         <label>Namn</label>
         <input

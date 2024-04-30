@@ -133,7 +133,8 @@ Variables
 .total-amount {
   /* margin: 1rem 0; */
   font-size: 1.2rem;
-  color: rgb(53, 53, 53);
+  color: var(--clr-btn-red);
+  font-weight: bold;
 }
 
 /*meadia queries */
