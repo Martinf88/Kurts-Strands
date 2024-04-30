@@ -63,6 +63,27 @@ const useStore = create((set) => ({
       };
     }),
 
+  removeAllFromCart: (id) =>
+    set((state) => {
+      const updatedCart = state.cart.filter((item) => item.id !== id);
+
+      const updatedTotalPrice = updatedCart.reduce(
+        (totalPrice, item) => totalPrice + item.price * item.count,
+        0
+      );
+
+      const updatedTotalCount = updatedCart.reduce(
+        (count, item) => count + item.count,
+        0
+      );
+
+      return {
+        cart: updatedCart,
+        totalPrice: updatedTotalPrice,
+        count: updatedTotalCount,
+      };
+    }),
+
   //sets cart to an empty array and totalPrice and count to 0
   clearCart: () => set({ cart: [], totalPrice: 0, count: 0 }),
 }));

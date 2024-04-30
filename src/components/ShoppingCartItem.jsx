@@ -3,17 +3,24 @@ import "../css/shopping-cart.css";
 import useStore from "../data/store";
 
 export default function ShoppingCartItem() {
-  const { cart, addToCart, removeOneFromCart } = useStore((state) => ({
-    cart: state.cart,
-    addToCart: state.addToCart,
-    removeOneFromCart: state.removeOneFromCart,
-  }));
+  const { cart, addToCart, removeOneFromCart, removeAllFromCart } = useStore(
+    (state) => ({
+      cart: state.cart,
+      addToCart: state.addToCart,
+      removeOneFromCart: state.removeOneFromCart,
+      removeAllFromCart: state.removeAllFromCart,
+    })
+  );
 
   const handleIncrease = (toy) => {
     addToCart(toy);
   };
   const handleDecrease = (id) => {
     removeOneFromCart(id);
+  };
+
+  const handleRemoveAll = (id) => {
+    removeAllFromCart(id);
   };
   return (
     <>
@@ -40,7 +47,12 @@ export default function ShoppingCartItem() {
             </button>
           </div>
           {/* <p className="item-price">???kr</p> */}
-          {/* <button className="delete-btn">X</button> */}
+          <button
+            className="delete-btn"
+            onClick={() => handleRemoveAll(toy.id)}
+          >
+            X
+          </button>
         </div>
       ))}
     </>
