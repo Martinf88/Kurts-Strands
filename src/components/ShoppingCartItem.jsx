@@ -2,7 +2,7 @@ import React from "react";
 import "../css/shopping-cart.css";
 import useStore from "../data/store";
 
-export default function ShoppingCartItem({ setTotalPrice }) {
+export default function ShoppingCartItem() {
   const { cart, addToCart, removeOneFromCart } = useStore((state) => ({
     cart: state.cart,
     addToCart: state.addToCart,
