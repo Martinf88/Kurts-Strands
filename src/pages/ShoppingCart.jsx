@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import "../css/shopping-cart.css";
 import useStore from "../data/store";
 import "../css/admin-page.css";
+import CheckoutForm from "../components/CheckoutForm";
 
 export default function ShoppingCart() {
   const { totalPrice, cart, clearCart } = useStore((state) => ({
@@ -73,23 +74,7 @@ export default function ShoppingCart() {
             </div>
           </>
         ) : (
-          <div className="edit-container">
-            <form className="update-container">
-              <label>Namn</label>
-              <input type="text" />
-
-              <label>Adress</label>
-              <input type="text" />
-
-              <label>Postnummer</label>
-              <input type="text" />
-              <NavLink to="/thanks">
-                <button className="btn place-order-btn" onClick={placeOrder}>
-                  Lägg Beställning
-                </button>
-              </NavLink>
-            </form>
-          </div>
+          <CheckoutForm placeOrder={placeOrder} />
         )}
       </section>
     </>
