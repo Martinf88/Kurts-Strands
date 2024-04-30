@@ -6,6 +6,8 @@ import "../css/shopping-cart.css";
 import useStore from "../data/store";
 import "../css/admin-page.css";
 import CheckoutForm from "../components/CheckoutForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShoppingCart() {
   const { totalPrice, cart, clearCart } = useStore((state) => ({
@@ -49,9 +51,17 @@ export default function ShoppingCart() {
       <section className="cart">
         {cart.length === 0 ? (
           <div className="message-wrapper">
-            <h1 className="empty-cart-message">
+            <FontAwesomeIcon
+              icon={faShoppingBasket}
+              className="message-cart-icon"
+            />
+            <h1 className="message-title">
               Det är tomt här! Varför inte lägga till något i din varukorg?
             </h1>
+            <p className="message-description">
+              Kika igenom vårt fantastiska sortiment,
+            </p>
+            <NavLink to="/"> Börja Shoppa Nu!</NavLink>
           </div>
         ) : !checkout ? (
           <>
@@ -60,9 +70,6 @@ export default function ShoppingCart() {
               <p className="item-name">Produkt</p>
               <p className="item-price">Pris</p>
               <p className="item-quantity">Antal</p>
-              {/* <p className="item-price">á pris</p>
-              <p className="item-total-price">Totalt</p>
-              <p>Ta Bort</p> */}
             </div>
             <ShoppingCartItem />
             <div className="checkout-wrapper">
