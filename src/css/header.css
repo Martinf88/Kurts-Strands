@@ -21,6 +21,7 @@ Variables
   align-items: end;
   padding: 0.5rem 1rem;
   margin-bottom: 1px;
+  position: relative;
 }
 
 .header-title {
@@ -40,6 +41,9 @@ Variables
 
 .umbrella-icon {
   font-size: 3rem;
+  position: absolute;
+  left: 16rem;
+  bottom: 0.7rem;
 }
 
 /*mobile first */
@@ -56,5 +60,7 @@ Variables
 
   .umbrella-icon {
     font-size: 4rem;
+    left: 23rem;
+    bottom: 0.7rem;
   }
 }
