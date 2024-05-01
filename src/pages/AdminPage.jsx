@@ -7,6 +7,7 @@ import useStore from "../data/store";
 import { deleteToy, getToys, updateToy } from "../data/crud";
 
 export default function AdminPage() {
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("");
   const [urlTouched, setUrlTouched] = useState(false);
   const [title, setTitle] = useState("");
@@ -55,7 +56,9 @@ export default function AdminPage() {
   let priceClass = priceIsValid ? "valid" : "invalid";
 
   const handleGetToys = async () => {
+    setLoading(true);
     setToys(await getToys());
+    setLoading(false);
   };
 
   const handleRemoveToy = async (toyId) => {
@@ -64,10 +67,13 @@ export default function AdminPage() {
       return;
     }
     try {
+      setLoading(true);
       await deleteToy(toyId);
       await handleGetToys();
+      setLoading(false);
     } catch (error) {
       console.error("Error removing toy: ", error);
+      setLoading(false);
     }
   };
 
@@ -84,11 +90,14 @@ export default function AdminPage() {
   const handleUpdateToy = async (selectedToyId) => {
     const updatedToy = { url, title, category, price };
     try {
+      setLoading(true);
       await updateToy(selectedToyId, updatedToy);
       const updatedList = await getToys();
       setToys(updatedList);
+      setLoading(false);
     } catch (error) {
       console.error("Error updating toy: ", error);
+      setLoading(false);
     }
     setIsVisible(false);
     setUrl("");
@@ -104,21 +113,23 @@ export default function AdminPage() {
       <EditNav />
       <div className="edit-container">
         <h1 className="edit-container-title">Hantera Produkter</h1>
-        <button onClick={() => handleGetToys()} className="btn">
+        {/* <button onClick={() => handleGetToys()} className="btn">
           Hämta produkter
-        </button>
+        </button> */}
         {!isVisible ? (
           <div className="edit-product-grid">
             {toys.map((toy) => (
               <div className="product" key={toy.key}>
                 <div className="admin-btn-wrapper">
                   <button
+                    disabled={loading}
                     onClick={() => handleRemoveToy(toy.key)}
                     className="remove-btn"
                   >
                     <FontAwesomeIcon icon={faTrash} className="remove-icon" />
                   </button>
                   <button
+                    disabled={loading}
                     onClick={() => handleEditToy(toy)}
                     className="edit-btn"
                   >
@@ -176,7 +187,7 @@ export default function AdminPage() {
             />
             <p className={priceErrorClass}> {priceErrorMessage} &nbsp; </p>
             <button
-              disabled={!formIsValid}
+              disabled={!formIsValid || loading}
               onClick={() => handleUpdateToy(selectedToyId)}
             >
               Spara
