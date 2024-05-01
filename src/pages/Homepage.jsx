@@ -26,15 +26,7 @@ export default function Homepage() {
     <>
       <div ref={topRef}></div>
       <Header />
-      {/* <section className="hero-image">
-        <div className="hero-text">
-          <h1>Våra produkter</h1>
-        </div>
-      </section> */}
       <SortBar />
-      {/* <button onClick={handleGetToys} className="call-to-action btn">
-        Våra Leksaker
-      </button> */}
       <section className="main-section">
         <Product />
       </section>

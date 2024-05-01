@@ -20,34 +20,45 @@ const useStore = create((set) => ({
 
   addToCart: (toy) =>
     set((state) => {
-      //Update state of cart
-      const existingItem = state.cart.find((item) => item.title === toy.title); // Check cart fort matching title
-      // If an existing item with the same title is found, update its count
-      // Otherwise, add the new toy to the cart with a count of 1
-      const updatedCart = existingItem
-        ? state.cart.map((item) =>
-            item.title === toy.title ? { ...item, count: item.count + 1 } : item
-          )
-        : [...state.cart, { ...toy, count: 1 }];
-      // Calculate the total price of all items in the updated cart
-      const totalPrice = updatedCart.reduce(
-        (total, item) => total + item.price * item.count,
-        0
-      );
+      // Check if there is an existing item in the cart with the same title
+      const existingItem = state.cart.find((item) => item.title === toy.title);
 
-      return { cart: updatedCart, totalPrice };
+      if (existingItem) {
+        // If an item with the same title is found, update its count
+        const updatedCart = state.cart.map((item) => {
+          if (item.title === toy.title) {
+            return { ...item, count: item.count + 1 };
+          } else {
+            return item;
+          }
+        });
+        // Calculate the total price of all items in the updated cart
+        const totalPrice = updatedCart.reduce(
+          (total, item) => total + item.price * item.count,
+          0
+        );
+        return { cart: updatedCart, totalPrice };
+      } else {
+        // If no item with the same title is found, add the new toy to the cart with a count of 1
+        const updatedCart = [...state.cart, { ...toy, count: 1 }];
+        // Calculate the total price of all items in the updated cart
+        const totalPrice = updatedCart.reduce(
+          (total, item) => total + item.price * item.count,
+          0
+        );
+        return { cart: updatedCart, totalPrice };
+      }
     }),
 
   removeOneFromCart: (id) =>
-    //Update state of cart
     set((state) => {
-      // Find the index of the item to remove from the cart
+      // Find index of item to remove
       const indexToRemove = state.cart.findIndex((item) => item.id === id);
       // If the item is not found in the cart: Return the current state. No change is needed.
       if (indexToRemove === -1) {
         return state;
       }
-      // Else: Create a copy of the cart array
+      // Else: Create a copy of cart
       const updatedCart = [...state.cart];
       // Create a copy of the object and update the count of the item to remove by decrementing it by 1
       const updatedItem = {
@@ -72,22 +83,26 @@ const useStore = create((set) => ({
 
   removeAllFromCart: (id) =>
     set((state) => {
+      // Remove all items from the cart with the given id
       const updatedCart = state.cart.filter((item) => item.id !== id);
 
+      // Calculate the total price of all items in the updated cart
       const updatedTotalPrice = updatedCart.reduce(
         (totalPrice, item) => totalPrice + item.price * item.count,
         0
       );
 
+      // Calculate the total count of all items in the updated cart
       const updatedTotalCount = updatedCart.reduce(
         (count, item) => count + item.count,
         0
       );
 
+      // Return the updated cart, total price, and total count
       return {
-        cart: updatedCart,
-        totalPrice: updatedTotalPrice,
-        count: updatedTotalCount,
+        cart: updatedCart, // Updated cart without the removed items
+        totalPrice: updatedTotalPrice, // Updated total price after removal
+        count: updatedTotalCount, // Updated total count after removal
       };
     }),
 

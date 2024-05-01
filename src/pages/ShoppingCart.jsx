@@ -18,14 +18,13 @@ export default function ShoppingCart() {
     cart: state.cart,
     clearCart: state.clearCart,
   }));
-  const [checkout, setCheckout] = useState(false);
 
-  //clear shopping cart on checkout
+  //----------CONDITIONAL RENDERING----------
+  const [checkout, setCheckout] = useState(false);
   const handleCheckout = () => {
     setCheckout(true);
   };
-
-  // Funktion för att hantera beställning
+  //CLEAR  ALL SHOPPING CART STATES
   const placeOrder = () => {
     clearCart();
   };

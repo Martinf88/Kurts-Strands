@@ -239,6 +239,8 @@ Variables
 @media (min-width: 1536px) {
   .cart {
     max-width: 1536px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .cart-item {
     max-width: 1536px;

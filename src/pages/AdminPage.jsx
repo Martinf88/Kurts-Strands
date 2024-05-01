@@ -8,6 +8,14 @@ import { deleteToy, getToys, updateToy } from "../data/crud";
 
 export default function AdminPage() {
   const [loading, setLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedToyId, setSelectedToyId] = useState(null);
+  const { toys, setToys } = useStore((state) => ({
+    toys: state.toys,
+    setToys: state.setToys,
+  }));
+
+  //---------------VALIDATION---------------
   const [url, setUrl] = useState("");
   const [urlTouched, setUrlTouched] = useState(false);
   const [title, setTitle] = useState("");
@@ -16,13 +24,6 @@ export default function AdminPage() {
   const [categoryTouched, setCategoryTouched] = useState(false);
   const [price, setPrice] = useState("");
   const [priceTouched, setPriceTouched] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedToyId, setSelectedToyId] = useState(null);
-
-  const { toys, setToys } = useStore((state) => ({
-    toys: state.toys,
-    setToys: state.setToys,
-  }));
 
   // Validate values
   const urlIsValid = url.length > 0;
@@ -55,6 +56,7 @@ export default function AdminPage() {
     priceTouched && !priceIsValid ? "error" : "error hidden";
   let priceClass = priceIsValid ? "valid" : "invalid";
 
+  //---------------HANDLEFUNCTIONS---------------
   const handleGetToys = async () => {
     setLoading(true);
     setToys(await getToys());
