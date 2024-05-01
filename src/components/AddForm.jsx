@@ -5,7 +5,10 @@ import useStore from "../data/store";
 import EditNav from "./EditNav";
 
 export default function AddForm() {
-  // State hooks för att hantera formulärfält och beröringsstatus
+  const { setToys } = useStore((state) => ({
+    setToys: state.setToys,
+  }));
+  //----------VALIDATION----------
   const [url, setUrl] = useState("");
   const [urlTouched, setUrlTouched] = useState(false);
   const [title, setTitle] = useState("");
@@ -15,50 +18,13 @@ export default function AddForm() {
   const [price, setPrice] = useState("");
   const [priceTouched, setPriceTouched] = useState(false);
 
-  // custom hook för att hämta och sätta leksaker i lagringen
-  const { setToys } = useStore((state) => ({
-    setToys: state.setToys,
-  }));
-
-  // Funktion för att hämta leksaker från databasen
-  const handleGetToys = async () => {
-    setToys(await getToys());
-  };
-
-  // Funktion för att lägga till en ny leksak
-  const handleAddNewToy = async (e) => {
-    e.preventDefault();
-    const priceAsNumber = parseFloat(price);
-    const newToy = {
-      url: url,
-      title: title,
-      category: category,
-      price: priceAsNumber,
-    };
-    try {
-      await addToys(newToy);
-      await handleGetToys();
-      // Återställa formulärfält efter att en leksak har lagts till
-      setUrl("");
-      setUrlTouched(false);
-      setTitle("");
-      setTitleTouched(false);
-      setCategory("");
-      setCategoryTouched(false);
-      setPrice("");
-      setPriceTouched(false);
-    } catch (error) {
-      console.error("Error adding new toy: ", error);
-    }
-  };
-
-  // Validering av formulärfält
+  // VALIDATION VALUES
   const urlIsValid = url.length > 0;
   const titleIsValid = title.length > 0;
   const categoryIsValid = category.length > 0;
   const priceIsValid = /^\d+$/.test(price);
 
-  // Felmeddelanden för ogiltiga fält
+  // ERROR MESSAGES
   const urlErrorMessage = urlIsValid ? "" : "Fyll i en Url.";
   const titleErrorMessage = titleIsValid ? "" : "Fyll i ett produktnamn.";
   const categoryErrorMessage = categoryIsValid ? "" : "Fyll i en kategori.";
@@ -66,11 +32,11 @@ export default function AddForm() {
     ? ""
     : "Fyll i fältet med enbart siffor";
 
-  // Kontrollera om alla formulärfält är ifyllda korrekt
+  // CHECK IF ALL FIELDS ARE FILLED IN CORRECTLY
   const formIsValid =
     urlIsValid && titleIsValid && categoryIsValid && priceIsValid;
 
-  // CSS-klasser för att styra utseendet baserat på formulärfältens tillstånd
+  // CSS-VARIABLES
   let urlErrorClass = urlTouched && !urlIsValid ? "error" : "error hidden";
   let urlClass = urlTouched ? (urlIsValid ? "valid" : "invalid") : "";
   let titleErrorClass =
@@ -87,7 +53,40 @@ export default function AddForm() {
     priceTouched && !priceIsValid ? "error" : "error hidden";
   let priceClass = priceTouched ? (priceIsValid ? "valid" : "invalid") : "";
 
-  // Rendera komponenten
+  //----------FIRESTORE FUNCTIONS----------
+
+  // GET COLLECTION FROM FIRESTORE
+  const handleGetToys = async () => {
+    setToys(await getToys());
+  };
+
+  // ADD TOY TO FIRESTORE COLLECTION
+  const handleAddNewToy = async (e) => {
+    e.preventDefault();
+    const priceAsNumber = parseFloat(price);
+    const newToy = {
+      url: url,
+      title: title,
+      category: category,
+      price: priceAsNumber,
+    };
+    try {
+      await addToys(newToy);
+      await handleGetToys();
+      //-----INPUT RESET-----
+      setUrl("");
+      setUrlTouched(false);
+      setTitle("");
+      setTitleTouched(false);
+      setCategory("");
+      setCategoryTouched(false);
+      setPrice("");
+      setPriceTouched(false);
+    } catch (error) {
+      console.error("Error adding new toy: ", error);
+    }
+  };
+
   return (
     <>
       <EditNav />

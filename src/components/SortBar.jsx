@@ -11,7 +11,8 @@ export default function sortBar() {
     cart: state.cart,
   }));
 
-  const totalCount = cart.reduce((total, item) => total + item.count, 0);
+  // Calculate the total count of items in the shopping cart
+  const totalCount = cart.reduce((acc, item) => acc + item.count, 0);
 
   return (
     <section className="sortBar-container">

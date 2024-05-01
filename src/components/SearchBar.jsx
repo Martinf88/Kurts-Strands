@@ -8,6 +8,7 @@ export default function SearchBar() {
   }));
 
   const handleSearchChange = (event) => {
+    // Update search term with input value
     setSearchTerm(event.target.value);
   };
 

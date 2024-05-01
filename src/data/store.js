@@ -7,7 +7,7 @@ const useStore = create((set) => ({
   count: 0,
   searchTerm: "",
 
-  //Updates searchTearm with information from searchfield
+  //Updates searchTerm with information from searchfield
   setSearchTerm: (searchTerm) =>
     set((state) => ({
       searchTerm: searchTerm,

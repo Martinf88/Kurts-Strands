@@ -5,8 +5,6 @@ import {
   deleteDoc,
   doc,
   updateDoc,
-  //   query,
-  //   where,
 } from "firebase/firestore";
 
 import { db } from "./fire";
@@ -14,9 +12,6 @@ import { db } from "./fire";
 //collection ref
 const collectionName = "toys";
 const toyCollectionRef = collection(db, collectionName);
-
-// queries
-// const q = query(toyCollectionRef, where());
 
 export async function getToys() {
   const toySnapshot = await getDocs(toyCollectionRef);

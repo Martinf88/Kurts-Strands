@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../css/admin-page.css";
 
 export default function CheckoutForm({ placeOrder }) {
+  //----------VALIDATION----------
   const [name, setName] = useState("");
   const [nameTouched, setNameTouched] = useState(false);
   const [address, setAddress] = useState("");
@@ -10,12 +11,12 @@ export default function CheckoutForm({ placeOrder }) {
   const [postalcode, setPostalcode] = useState("");
   const [postalcodeTouched, setPostalcodeTouched] = useState(false);
 
-  // Validering av formulärfält
+  // VALIDATION VALUES
   const nameIsValid = name.length > 0;
   const addressIsValid = address.length > 0;
   const postalcodeIsValid = /^\d+$/.test(postalcode);
 
-  // Felmeddelanden för ogiltiga fält
+  // ERROR MESSAGES
   const nameErrorMessage = nameIsValid ? "" : "Fyll i för- och efternamn.";
   const addressErrorMessage = addressIsValid
     ? ""
@@ -24,10 +25,10 @@ export default function CheckoutForm({ placeOrder }) {
     ? ""
     : "Fyll i ett giltigt postnummer.";
 
-  // Kontrollera om alla formulärfält är ifyllda korrekt
+  // CHECK IF ALL FIELDS ARE FILLED IN CORRECTLY
   const formIsValid = nameIsValid && addressIsValid && postalcodeIsValid;
 
-  // CSS-klasser för att styra utseendet baserat på formulärfältens tillstånd
+  // CSS-VARIABLES
   let nameErrorClass = nameTouched && !nameIsValid ? "error" : "error hidden";
   let nameClass = nameTouched ? (nameIsValid ? "valid" : "invalid") : "";
   let addressErrorClass =

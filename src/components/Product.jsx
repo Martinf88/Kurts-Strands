@@ -10,14 +10,17 @@ export default function Product() {
     searchTerm: state.searchTerm,
   }));
 
+  // Filter toys based on the search term entered by the user
   const filteredToys = toys.filter(
     (toy) =>
       toy.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       toy.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  //ADD ITEM TO CART
   const handleAddToCart = (toy) => {
     const id = Date.now();
+    //SET ID TO TOY
     addToCart({ ...toy, id });
     console.log("added to cart");
   };

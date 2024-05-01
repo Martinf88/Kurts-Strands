@@ -46,7 +46,6 @@ export default function ShoppingCartItem() {
               +
             </button>
           </div>
-          {/* <p className="item-price">???kr</p> */}
           <button
             className="delete-btn"
             onClick={() => handleRemoveAll(toy.id)}
