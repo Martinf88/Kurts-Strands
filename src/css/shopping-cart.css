@@ -42,11 +42,18 @@ Variables
   color: var(--clr-primary-1);
 }
 
-.back-btn-wrapper {
+.close-cart-wrapper,
+.back-to-cart-wrapper {
   margin: 1rem;
+  width: 100%;
 }
-.back-btn-wrapper svg {
-  width: 30px;
+.close-cart-link,
+.back-to-cart-link {
+  color: white;
+  background-color: var(--clr-primary-1);
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 1000px;
 }
 
 .cart {

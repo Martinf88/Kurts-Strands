@@ -43,7 +43,7 @@ Variables
 }
 .thanks-link {
   color: white;
-  background-color: rgb(43, 43, 43);
+  background-color: var(--clr-primary-1);
   text-decoration: none;
   padding: 0.4rem 0.7rem;
   border-radius: 1000px;

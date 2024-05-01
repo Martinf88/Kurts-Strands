@@ -44,7 +44,11 @@ export default function Loginpage() {
             />
           </div>
           <div className="btn-wrapper">
-            <button className="login-button" onClick={handleLogin}>
+            <button
+              type="button"
+              className="login-button"
+              onClick={handleLogin}
+            >
               Logga in
             </button>
             {error && <p className="login-error-message">{error}</p>}

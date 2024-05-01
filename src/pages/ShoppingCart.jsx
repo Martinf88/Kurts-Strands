@@ -7,7 +7,10 @@ import useStore from "../data/store";
 import "../css/admin-page.css";
 import CheckoutForm from "../components/CheckoutForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingBasket,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function ShoppingCart() {
   const { totalPrice, cart, clearCart } = useStore((state) => ({
@@ -30,41 +33,36 @@ export default function ShoppingCart() {
   return (
     <>
       <Header />
-      <div className="back-btn-wrapper">
-        <NavLink to="/">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="black"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-            />
-          </svg>
-        </NavLink>
-      </div>
 
       <section className="cart">
         {cart.length === 0 ? (
-          <div className="message-wrapper">
-            <FontAwesomeIcon
-              icon={faShoppingBasket}
-              className="message-cart-icon"
-            />
-            <h1 className="message-title">
-              Det är tomt här! Varför inte lägga till något i din varukorg?
-            </h1>
-            <p className="message-description">
-              Kika igenom vårt fantastiska sortiment,
-            </p>
-            <NavLink to="/"> Börja Shoppa Nu!</NavLink>
-          </div>
+          <>
+            <div className="close-cart-wrapper">
+              <NavLink to="/" className="close-cart-link">
+                X
+              </NavLink>
+            </div>
+            <div className="message-wrapper">
+              <FontAwesomeIcon
+                icon={faShoppingBasket}
+                className="message-cart-icon"
+              />
+              <h1 className="message-title">
+                Det är tomt här! Varför inte lägga till något i din varukorg?
+              </h1>
+              <p className="message-description">
+                Kika igenom vårt fantastiska sortiment,
+              </p>
+              <NavLink to="/"> Börja Shoppa Nu!</NavLink>
+            </div>
+          </>
         ) : !checkout ? (
           <>
+            <div className="close-cart-wrapper">
+              <NavLink to="/" className="close-cart-link">
+                X
+              </NavLink>
+            </div>
             <h1 className="cart-title">Din Varukorg</h1>
             <div className="cart-header">
               <p className="item-name">Produkt</p>
@@ -81,7 +79,17 @@ export default function ShoppingCart() {
             </div>
           </>
         ) : (
-          <CheckoutForm placeOrder={placeOrder} />
+          <>
+            <div className="back-to-cart-wrapper">
+              <button
+                className="back-to-cart-link"
+                onClick={() => setCheckout(false)}
+              >
+                <FontAwesomeIcon icon={faArrowLeft} /> Till Varukorgen
+              </button>
+            </div>
+            <CheckoutForm placeOrder={placeOrder} />
+          </>
         )}
       </section>
     </>
