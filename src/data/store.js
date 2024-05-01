@@ -5,6 +5,12 @@ const useStore = create((set) => ({
   cart: [],
   totalPrice: 0,
   count: 0,
+  searchTerm: "",
+
+  setSearchTerm: (searchTerm) =>
+    set((state) => ({
+      searchTerm: searchTerm,
+    })),
 
   setToys: (newToys) =>
     set((state) => ({

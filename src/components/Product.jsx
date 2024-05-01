@@ -3,11 +3,18 @@ import "../css/product.css";
 import useStore from "../data/store";
 
 export default function Product() {
-  const { toys, addToCart } = useStore((state) => ({
+  const { toys, addToCart, searchTerm } = useStore((state) => ({
     toys: state.toys,
     setToys: state.setToys,
     addToCart: state.addToCart,
+    searchTerm: state.searchTerm,
   }));
+
+  const filteredToys = toys.filter(
+    (toy) =>
+      toy.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      toy.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleAddToCart = (toy) => {
     const id = Date.now();
@@ -18,7 +25,7 @@ export default function Product() {
   return (
     <div className="product-container">
       <div className="product-grid">
-        {toys.map((toy) => (
+        {filteredToys.map((toy) => (
           <div className="product" key={toy.key}>
             <img src={toy.url} alt={toy.title} />
             <h2>{toy.title}</h2>
