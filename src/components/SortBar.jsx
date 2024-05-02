@@ -23,7 +23,7 @@ export default function SortBar() {
       </div>
       <div className="sortbar">
         <div className="sorting-wrapper">
-          <label>Sortera efter: </label>
+          {/* <label>Sortera efter: </label> */}
           <select name="" id="">
             <option value="name">Namn: A-Ö</option>
             <option value="name">Namn: Ö-A</option>

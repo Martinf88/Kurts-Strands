@@ -15,7 +15,7 @@ export default function AdminPage() {
     setToys: state.setToys,
   }));
 
-  //---------------VALIDATION---------------
+  //---------------FORM VALIDATION---------------
   const [url, setUrl] = useState("");
   const [urlTouched, setUrlTouched] = useState(false);
   const [title, setTitle] = useState("");
@@ -25,13 +25,13 @@ export default function AdminPage() {
   const [price, setPrice] = useState("");
   const [priceTouched, setPriceTouched] = useState(false);
 
-  // Validate values
+  // VALIDATION VALUES
   const urlIsValid = url.length > 0;
   const titleIsValid = title.length > 0;
   const categoryIsValid = category.length > 0;
   const priceIsValid = /^\d+$/.test(price);
 
-  //Error messages
+  //ERROR MESSAGES
   const urlErrorMessage = urlIsValid ? "" : "Fyll i en Url.";
   const titleErrorMessage = titleIsValid ? "" : "Fyll i ett produktnamn.";
   const categoryErrorMessage = categoryIsValid ? "" : "Fyll i en kategori.";
@@ -43,7 +43,7 @@ export default function AdminPage() {
   const formIsValid =
     urlIsValid && titleIsValid && categoryIsValid && priceIsValid;
 
-  // CSS variables
+  // CSS VARIABLES
   let urlErrorClass = urlTouched && !urlIsValid ? "error" : "error hidden";
   let urlClass = urlIsValid ? "valid" : "invalid";
   let titleErrorClass =
@@ -86,7 +86,6 @@ export default function AdminPage() {
     setTitle(toy.title);
     setCategory(toy.category);
     setPrice(toy.price);
-    console.log(isVisible);
   };
 
   const handleUpdateToy = async (selectedToyId) => {
