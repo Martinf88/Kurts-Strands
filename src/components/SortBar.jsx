@@ -6,13 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import useStore from "../data/store";
 
-export default function sortBar() {
+export default function SortBar() {
   const { cart } = useStore((state) => ({
     cart: state.cart,
   }));
 
   // Calculate the total count of items in the shopping cart
   const totalCount = cart.reduce((acc, item) => acc + item.count, 0);
+
+  //TODO: Implement Sorting functionality
 
   return (
     <section className="sortBar-container">

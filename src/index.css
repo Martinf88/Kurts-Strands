@@ -50,17 +50,6 @@ ul:not(article ul) {
   list-style: none;
 }
 
-menu,
-ol,
-ul {
-  padding-left: 0;
-}
-
-article ol,
-article ul {
-  list-style-position: inside;
-}
-
 a {
   /* Places underlines below the descenders */
   text-underline-position: under;
