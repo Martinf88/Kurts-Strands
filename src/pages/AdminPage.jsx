@@ -114,7 +114,7 @@ export default function AdminPage() {
     <>
       <EditNav />
       <div className="edit-container">
-        <h1 className="edit-container-title">Hantera Produkter</h1>
+        <h1 className="edit-container-title">Redigera Produkt</h1>
         {/* <button onClick={() => handleGetToys()} className="btn">
           Hämta produkter
         </button> */}

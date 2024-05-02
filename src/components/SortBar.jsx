@@ -19,22 +19,23 @@ export default function sortBar() {
       <div className="input-container">
         <SearchBar />
       </div>
-      <nav className="sortbar">
+      <div className="sortbar">
         <div className="sorting-wrapper">
+          <label>Sortera efter: </label>
           <select name="" id="">
-            <option value="name">A-Ö</option>
-            <option value="name">Ö-A</option>
+            <option value="name">Namn: A-Ö</option>
+            <option value="name">Namn: Ö-A</option>
           </select>
           <select name="" id="">
-            <option value="price">Stigande</option>
-            <option value="price">Fallande</option>
+            <option value="Pris stigande">Pris: Stigande</option>
+            <option value="Pris fallande">Pris: Fallande</option>
           </select>
         </div>
         <NavLink to="/cart" className="cart-nav">
           <FontAwesomeIcon icon={faShoppingBasket} className="cart-icon" />
           <span className="total-count">{totalCount}</span>
         </NavLink>
-      </nav>
+      </div>
     </section>
   );
 }

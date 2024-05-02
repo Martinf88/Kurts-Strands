@@ -19,6 +19,7 @@ Variables
   padding: 0.7rem 1.5rem;
   background-color: hsl(211, 100%, 20%);
   gap: 1rem;
+  align-items: center;
 }
 
 .sortBar-container {
@@ -31,6 +32,10 @@ Variables
 }
 
 .sortbar select {
+  margin-right: 0.5rem;
+}
+.sortbar label {
+  color: white;
   margin-right: 0.5rem;
 }
 
