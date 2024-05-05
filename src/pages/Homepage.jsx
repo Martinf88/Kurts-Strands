@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SortBar from "../components/SortBar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ import useStore from "../data/store";
 
 export default function Homepage() {
   const topRef = useRef(null);
+  const [selectedSortingOption, setSelectedSortingOption] = useState("");
 
   const { setToys } = useStore((state) => ({
     setToys: state.setToys,
@@ -22,13 +23,17 @@ export default function Homepage() {
     fetchData();
   }, []);
 
+  const handleSortingChange = (option) => {
+    setSelectedSortingOption(option);
+  };
+
   return (
     <>
       <div ref={topRef}></div>
       <Header />
-      <SortBar />
+      <SortBar onSortingChange={handleSortingChange} />
       <section className="main-section">
-        <Product />
+        <Product selectedSortingOption={selectedSortingOption} />
       </section>
       <Footer topRef={topRef} />
     </>

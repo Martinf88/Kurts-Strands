@@ -12,29 +12,32 @@ Variables
   --clr-white: hsl(0, 0%, 90%);
 }
 
-.sortbar {
+.sortBar-container {
   display: flex;
-  /* justify-content: space-between; */
-  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
   padding: 0.7rem 1.5rem;
   background-color: hsl(211, 100%, 20%);
   gap: 1rem;
-  align-items: center;
-}
-
-.sortBar-container {
-  position: sticky;
-  top: 0;
+  flex-wrap: wrap;
 }
 
 .sorting-wrapper {
   display: flex;
+  align-items: center;
 }
 
-.sortbar select {
+.select {
   margin-right: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid hsl(211, 100%, 50%);
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
-.sortbar label {
+.select-label {
   color: white;
   margin-right: 0.5rem;
 }
@@ -44,7 +47,7 @@ Variables
   font-size: 1.3rem;
 }
 
-.sortbar span {
+.total-count {
   text-decoration: none;
   color: white;
   display: inline-block;

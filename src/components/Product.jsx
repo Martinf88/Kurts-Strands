@@ -2,7 +2,7 @@ import React from "react";
 import "../css/product.css";
 import useStore from "../data/store";
 
-export default function Product() {
+export default function Product({ selectedSortingOption }) {
   const { toys, addToCart, searchTerm } = useStore((state) => ({
     toys: state.toys,
     setToys: state.setToys,
@@ -25,10 +25,26 @@ export default function Product() {
     console.log("added to cart");
   };
 
+  // Sorting logic
+  const sortedToys = filteredToys.slice().sort((a, b) => {
+    switch (selectedSortingOption) {
+      case "nameAsc":
+        return a.title.localeCompare(b.title);
+      case "nameDesc":
+        return b.title.localeCompare(a.title);
+      case "priceAsc":
+        return a.price - b.price;
+      case "priceDesc":
+        return b.price - a.price;
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className="product-container">
       <div className="product-grid">
-        {filteredToys.map((toy) => (
+        {sortedToys.map((toy) => (
           <div className="product" key={toy.key}>
             <img src={toy.url} alt={toy.title} />
             <h2>{toy.title}</h2>
