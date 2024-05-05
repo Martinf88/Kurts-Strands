@@ -13,7 +13,7 @@ export default function SortBar({ onSortingChange }) {
 
   const handleSortingChange = (event) => {
     const option = event.target.value;
-    onSortingChange(option); // Pass the selected sorting option to the parent component
+    onSortingChange(option);
   };
 
   // Calculate the total count of items in the shopping cart
@@ -26,7 +26,7 @@ export default function SortBar({ onSortingChange }) {
       <SearchBar />
       <div className="sorting-wrapper">
         <select className="select" onChange={handleSortingChange}>
-          <option value="">Sortera</option>
+          <option value="">Sortera:</option>
           <option value="nameAsc">Namn: A-Ö</option>
           <option value="nameDesc">Namn: Ö-A</option>
           <option value="priceAsc">Pris: Stigande</option>

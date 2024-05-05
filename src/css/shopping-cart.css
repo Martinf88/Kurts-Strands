@@ -96,9 +96,13 @@ Variables
   width: 100%;
   align-items: center;
 }
+.cart-item p {
+  /* font-size: 1.2rem; */
+}
 
 .cart-item img {
-  height: 2rem;
+  height: 3rem;
+  margin-right: 0.5rem;
 }
 
 .image-title-wrapper {
@@ -110,17 +114,6 @@ Variables
 .amount-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center align quantity buttons and input */
-}
-
-.amount-wrapper button {
-  padding: 5px 10px;
-  cursor: pointer;
-  border: none;
-  color: var(--clr-white);
-  font-weight: bold;
-  font-size: 0.9rem;
-  border-radius: 4px;
 }
 
 .amount-wrapper input {
@@ -128,14 +121,26 @@ Variables
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 5px;
-  /* margin: 0 5px; */
+  padding: 0.4rem;
 }
+
+.decrease-btn,
+.increase-btn {
+  padding: 0.4rem;
+  cursor: pointer;
+  border: none;
+  /* font-weight: bolder; */
+  /* font-size: 2rem; */
+  border-radius: 4px;
+  color: white;
+}
+
+.increase-btn {
+  background-color: var(--clr-primary-1);
+}
+
 .decrease-btn {
   background-color: var(--clr-btn-red);
-}
-.increase-btn {
-  background-color: var(--clr-btn-blue);
 }
 
 .delete-btn {
@@ -159,7 +164,7 @@ Variables
 }
 
 .total-amount {
-  /* margin: 1rem 0; */
+  margin-bottom: 1rem;
   font-size: 1.2rem;
   color: var(--clr-btn-red);
   font-weight: bold;
@@ -182,6 +187,9 @@ Variables
     flex-grow: 1;
     width: 100%;
   }
+  .total-amount {
+    margin-bottom: 0;
+  }
 }
 
 /* sm */
@@ -199,6 +207,9 @@ Variables
   }
   .cart-item {
     max-width: 640px;
+  }
+  .cart-item p {
+    font-size: 1.2rem;
   }
 }
 

@@ -35,6 +35,10 @@ Variables
   padding: 20px;
   width: 200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  background-color: white;
 }
 
 /* .product img {

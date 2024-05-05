@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/shopping-cart.css";
 import useStore from "../data/store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShoppingCartItem() {
   const { cart, addToCart, removeOneFromCart, removeAllFromCart } = useStore(
@@ -36,14 +38,14 @@ export default function ShoppingCartItem() {
               className="decrease-btn"
               onClick={() => handleDecrease(toy.id)}
             >
-              -
+              <FontAwesomeIcon icon={faMinus} />
             </button>
             <input type="text" readOnly value={toy.count} />
             <button
               className="increase-btn"
               onClick={() => handleIncrease(toy)}
             >
-              +
+              <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
           <button
