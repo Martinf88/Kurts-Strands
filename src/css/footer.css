@@ -20,6 +20,7 @@ Variables
   padding: 2rem 0;
   gap: 1rem;
   color: white;
+  font-size: 1.2rem;
 }
 
 .footer p {
@@ -42,4 +43,5 @@ Variables
   text-decoration: 1px solid underline;
   text-underline-position: under;
   text-decoration-thickness: 8;
+  font-size: 1.2rem;
 }
