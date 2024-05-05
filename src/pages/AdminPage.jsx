@@ -120,29 +120,27 @@ export default function AdminPage() {
         {!isVisible ? (
           <div className="edit-product-grid">
             {toys.map((toy) => (
-              <div className="product" key={toy.key}>
-                <div className="admin-btn-wrapper">
-                  <button
-                    disabled={loading}
-                    onClick={() => handleRemoveToy(toy.key)}
-                    className="remove-btn"
-                  >
-                    <FontAwesomeIcon icon={faTrash} className="remove-icon" />
-                  </button>
-                  <button
-                    disabled={loading}
-                    onClick={() => handleEditToy(toy)}
-                    className="edit-btn"
-                  >
-                    <FontAwesomeIcon icon={faEdit} className="edit-icon" />
-                  </button>
-                </div>
+              <div className="edit-product" key={toy.key}>
                 <img src={toy.url} alt={toy.title} />
                 <h2>{toy.title}</h2>
-                <h3>{toy.category}</h3>
-                <div className="price-wrapper">
-                  <p>{toy.price}kr</p>
+                <div className="edit-price-wrapper">
+                  <h3>{toy.category}</h3>
+                  <span>{toy.price}kr</span>
                 </div>
+                <button
+                  disabled={loading}
+                  onClick={() => handleEditToy(toy)}
+                  className="edit-btn"
+                >
+                  <FontAwesomeIcon icon={faEdit} className="edit-icon" />
+                </button>
+                <button
+                  disabled={loading}
+                  onClick={() => handleRemoveToy(toy.key)}
+                  className="remove-btn"
+                >
+                  <FontAwesomeIcon icon={faTrash} className="remove-icon" />
+                </button>
               </div>
             ))}
           </div>
