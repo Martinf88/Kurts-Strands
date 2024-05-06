@@ -1,5 +1,7 @@
 # Summer Toys Webshop
 
+Link to published project: https://martinf88.github.io/Kurts-Strands/
+
 ## This project is an individual assignment for the FED23 course. The task is to build a webshop selling summer toys. The web app will be deployed online.
 
 Technologies Used
