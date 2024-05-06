@@ -1,4 +1,4 @@
-Summer Toys Webshop
+###Summer Toys Webshop
 This project is an individual assignment for the FED23 course. The task is to build a webshop selling summer toys. The web app will be deployed online.
 
 Technologies Used
